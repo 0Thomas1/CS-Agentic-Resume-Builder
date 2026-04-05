@@ -1,0 +1,8 @@
+history.md
+.venv/
+*__pycache__/
+*.pyc
+*.env
+*repos.json
+session.db
+.adk
