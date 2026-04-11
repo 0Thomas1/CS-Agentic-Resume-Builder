@@ -60,3 +60,6 @@ root_agent = LlmAgent(
     before_model_callback=before_model_call,
     tools=[save_resume_to_context, job_analyst_agent_tool, repo_matcher_agent_tool, resume_tailor_agent_tool],
 )
+
+from google.adk.a2a.utils.agent_to_a2a import to_a2a
+app = to_a2a(root_agent, host="localhost", port=8000, protocol="http")
