@@ -120,6 +120,14 @@ Then open your browser to `http://localhost:8080`
 
 ---
 
+### Start the Remote A2A Agent server
+
+```bash
+# Ensure current working directory is ./agents
+# Start the remote agent using uvicorn
+uvicorn manager.agent:app --host localhost --port 8000
+```
+
 ## 🛠️ Tech Stack
 
 | Technology       | Purpose                                     |

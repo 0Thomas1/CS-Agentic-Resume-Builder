@@ -14,6 +14,9 @@ repo_matcher_agent_tool = agent_tool.AgentTool(repo_matcher_agent)
 resume_tailor_agent_tool = agent_tool.AgentTool(resume_tailor_agent)
 
 
+
+
+
 def before_model_call(callback_context: CallbackContext, llm_request: LlmRequest
 ) -> Optional[LlmResponse]:
     """
@@ -62,4 +65,20 @@ root_agent = LlmAgent(
 )
 
 from google.adk.a2a.utils.agent_to_a2a import to_a2a
-app = to_a2a(root_agent, host="localhost", port=8000, protocol="http")
+from a2a.types import AgentCard
+
+my_agent_card = AgentCard(
+    name="Resume Builder Manager Agent",
+    url="http://localhost:8000",
+    description="An agent that manages the resume building process by coordinating between sub-agents for job analysis, repository matching, and resume tailoring.",
+    version="1.0.0",
+    capabilities={},
+    skills=[],
+    default_input_modes=["text/plain"],
+    default_output_modes=["text/plain"],
+    supports_authenticated_extended_card=False,
+)
+
+
+
+app = to_a2a(root_agent, host="localhost", port=8000, protocol="http",agent_card=my_agent_card)
