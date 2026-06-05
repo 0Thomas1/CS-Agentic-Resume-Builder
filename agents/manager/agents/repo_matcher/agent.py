@@ -32,7 +32,6 @@ def get_repositories():
 
 # Initialize the agent
 root_agent = Agent(
-    model='gemini-3.1-flash-lite-preview',
     name='Repo_Matcher',
     description="Matches GitHub repositories to job requirements based on structured analyst output.",
     instruction=(

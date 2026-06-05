@@ -16,8 +16,8 @@ class JobAnalysis(BaseModel):
 
 # 3. Define the Analyst Agent
 root_agent = LlmAgent(
-    model='gemini-3.1-flash-lite-preview',
     name='Job_Analyst',
+
     description="Analyzes raw, unstructured job descriptions and extracts structured metrics like skills, salary, and requirements.",
     instruction=(
         "You are an expert technical recruiter and job analyst. "

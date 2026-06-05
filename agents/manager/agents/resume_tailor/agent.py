@@ -3,9 +3,10 @@ from .schema import ResumeSchema
 from google.adk.planners import BuiltInPlanner
 from google.genai import types
 
+
 root_agent = Agent(
-    model='gemini-3.1-flash-lite-preview',
     name='Resume_Tailor',
+
     description="The Root Agent responsible for writing a resume given a list of projects.",
     instruction=(
         "You are an expert resume writer. "

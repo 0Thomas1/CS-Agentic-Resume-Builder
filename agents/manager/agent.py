@@ -47,8 +47,16 @@ def save_resume_to_context(resume: str, tool_context):
     # Return empty dict as tools should typically return JSON-serializable output
     return {}
 
+from google.adk.models.lite_llm import LiteLlm
+
+lm_stduio = LiteLlm(
+    model='lm_studio/gemma-4-e2b',
+    api_base = 'http://127.0.0.1:1234/v1',
+    api_key='fake_api_key_for_local_testing',
+)
+
 root_agent = LlmAgent(
-    model='gemini-3.1-flash-lite-preview',
+    model=lm_stduio,
     name='Manager_Agent',
     description=(
         "The Manager Agent oversees the entire resume-building process, coordinating between sub-agents and ensuring a smooth workflow. "
