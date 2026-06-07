@@ -7,6 +7,9 @@ from google.adk.agents.callback_context import CallbackContext
 from google.adk.models.llm_response import LlmResponse
 from google.adk.models.llm_request import LlmRequest
 from typing import Optional
+import dotenv
+import os
+dotenv.load_dotenv()
 
 # initialize agents as sub-agents for the manager agent to call
 job_analyst_agent_tool = agent_tool.AgentTool(job_analyst_agent)
@@ -49,9 +52,12 @@ def save_resume_to_context(resume: str, tool_context):
 
 from google.adk.models.lite_llm import LiteLlm
 
+
+
+
 lm_stduio = LiteLlm(
-    model='lm_studio/gemma-4-e2b',
-    api_base = 'http://127.0.0.1:1234/v1',
+    model='ollama_chat/gemma4:12b',
+    base_url=os.getenv("OLLAMA_BASE_URL"),
     api_key='fake_api_key_for_local_testing',
 )
 
